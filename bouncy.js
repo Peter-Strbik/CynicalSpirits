@@ -64,6 +64,7 @@ var makeBall = function(){
     return {
     	bounce : wallBounce,
     	draw : drawBall,
+    	collide : ballBounce,
     	x : xPos,
     	y : yPos,
     	xV : xDir,
@@ -86,6 +87,7 @@ var drawBall = function(){
 	ctx.clearRect(0,0,500,500);
 	for (i = 0; i < balls.length; i++) {
 		balls[i].bounce();
+		balls[i].collide();
     		balls[i].draw();
 	}
 	ID = requestAnimationFrame(animate);
