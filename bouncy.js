@@ -1,6 +1,6 @@
 var c = document.getElementById("slate");
 var ctx = c.getContext("2d");
-var dvdButton = document.getElementById("dvd");
+var startButton = document.getElementById("start");
 var stopButton = document.getElementById("stop");
 var addButton = document.getElementById("add");
 // NEED HTML
@@ -60,7 +60,7 @@ var stopBall = function(){
 };
 
 
-dvdButton.addEventListener("click", drawBall);
+startButton.addEventListener("click", drawBall);
 stopButton.addEventListener("click", stopBall);
 addButton.addEventListener("click", addBall);
 
