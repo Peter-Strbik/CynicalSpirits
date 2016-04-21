@@ -12,8 +12,8 @@ var balls = []
 var ID;
 
 var makeBall = function(){
-    var xDir = 1;
-    var yDir = 1;
+    var xDir = 1 * Math.random();
+    var yDir = 1 * Math.random();
     var speed = 10 * Math.random();
     var xPos = Math.floor((Math.random() * (c.width - 20)) + 10);
     var yPos = Math.floor((Math.random() * (c.height - 20)) + 10);
