@@ -87,7 +87,7 @@ var drawBall = function(){
 	ctx.clearRect(0,0,500,500);
 	for (i = 0; i < balls.length; i++) {
 		balls[i].bounce();
-		balls[i].collide();
+		//balls[i].collide();
     		balls[i].draw();
 	}
 	ID = requestAnimationFrame(animate);
