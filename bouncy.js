@@ -24,6 +24,7 @@ var makeBall = function(){
     var yDir = 1 * Math.random();
     var speed = 10 * Math.random();
     var color = getRandomColor();
+    var radius = 10 + 30 * Math.random();
     var xPos = Math.floor((Math.random() * (c.width - 20)) + 10);
     var yPos = Math.floor((Math.random() * (c.height - 20)) + 10);
     var wallBounce = function(){
@@ -39,7 +40,7 @@ var makeBall = function(){
     var drawBall = function(){
     	ctx.fillStyle = color;
     	ctx.beginPath();
-	ctx.arc(xPos, yPos, 10, 0, 2 * Math.PI);
+	ctx.arc(xPos, yPos, radius, 0, 2 * Math.PI);
 	ctx.fill();
 	ctx.stroke();
     }
