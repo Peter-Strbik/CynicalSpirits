@@ -49,11 +49,14 @@ var makeBall = function(){
 			if (distanceBetween(balls[i])){
 				xDir = xDir * -1;
 				yDir = yDir * -1;
-				balls[i].x = balls[i].x * -1;
-				balls[i].y = balls[i].y * -1;
+				balls[i].flip();
 			};	
 		};
 	};
+    };
+    var flip = function(){
+    	xDir *= -1;
+    	yDir *= -1;
     };
     var drawBall = function(){
     	ctx.fillStyle = color;
@@ -72,7 +75,8 @@ var makeBall = function(){
     	y : yPos,
     	xV : xDir,
     	yV : yDir,
-    	r : radius
+    	r : radius,
+    	flip : flip
     };
 };
 
