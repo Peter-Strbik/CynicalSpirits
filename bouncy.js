@@ -30,10 +30,10 @@ var makeBall = function(){
     var wallBounce = function(){
     	xPos += speed * xDir;
     	yPos += speed * yDir;
-    	if (Math.abs(xPos-c.width/2) >= c.width/2 - 10){
+    	if (Math.abs(xPos-c.width/2) >= c.width/2 - radius){
 	    xDir = xDir * -1;
 	}
-	if (Math.abs(yPos-c.height/2) >= c.height/2 - 10){
+	if (Math.abs(yPos-c.height/2) >= c.height/2 - radius){
 	    yDir = yDir * -1;
         }
     }
