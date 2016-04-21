@@ -37,7 +37,7 @@ var makeBall = function(){
 	    yDir = yDir * -1;
         }
     };
-    var checkSelf(ball2){
+    var checkSelf = function(ball2){
 	return xPos == ball2.x && yPos == ball2.y && radius == ball2.r;
     };
     var ballBounce = function(x,y,xv,yv,c,bool){
@@ -75,7 +75,7 @@ var makeBall = function(){
 
 
 
-var distBetween(ball1, ball2){
+var distBetween = function(ball1, ball2){
 	return Math.pow((ball1.x - ball2.x),2) + Math.pow((ball1.y - ball2.y),2) <= Math.pow((ball1.r + ball2.r),2);
 };
 
