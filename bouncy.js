@@ -36,19 +36,46 @@ var makeBall = function(){
 	if (Math.abs(yPos-c.height/2) >= c.height/2 - radius){
 	    yDir = yDir * -1;
         }
-    }
-    var ballBounce = function(xa,xb,c,bool){};
+    };
+    var checkSelf(ball2){
+	return xPos == ball2.x && yPos == ball2.y && radius == ball2.r;
+    };
+    var ballBounce = function(x,y,xv,yv,c,bool){
+    	for (i = 0; i < balls.length; i++) {
+		if (!checkSelf(balls[i])){
+			if (distanceBetween(this,balls[i])){
+				xDir = xDir * -1;
+				yDir = yDir * -1;
+				balls[i].x = balls[i].x * -1;
+				balls[i].y = balls[i].y * -1;
+			};	
+		};
+	};
+    };
     var drawBall = function(){
     	ctx.fillStyle = color;
     	ctx.beginPath();
 	ctx.arc(xPos, yPos, radius, 0, 2 * Math.PI);
 	ctx.fill();
 	ctx.stroke();
-    }
+    };
+ 
+    
     return {
     	bounce : wallBounce,
-    	draw : drawBall
+    	draw : drawBall,
+    	x : xPos,
+    	y : yPos,
+    	xV : xDir,
+    	yV : yDir,
+    	r : radius
     };
+};
+
+
+
+var distBetween(ball1, ball2){
+	return Math.pow((ball1.x - ball2.x),2) + Math.pow((ball1.y - ball2.y),2) <= Math.pow((ball1.r + ball2.r),2);
 };
 
 var addBall = function(){ balls.push(makeBall());}
