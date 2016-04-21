@@ -14,9 +14,12 @@ var ID;
 var makeBall = function(){
     var xDir = 1;
     var yDir = 1;
+    var speed = 10 * Math.random();
     var xPos = Math.floor((Math.random() * (c.width - 20)) + 10);
     var yPos = Math.floor((Math.random() * (c.height - 20)) + 10);
     var wallBounce = function(){
+    	xPos += speed * xDir;
+    	yPos += speed * yDir;
     	if (Math.abs(xPos-c.width/2) >= c.width/2 - 10){
 	    xDir = xDir * -1;
 	}
@@ -37,7 +40,7 @@ var makeBall = function(){
 
 var addBall = function(){ balls.push(makeBall());}
 
-var drawDVD = function(){
+var drawBall = function(){
     window.cancelAnimationFrame(ID);
     var animate = function(){
 	ctx.clearRect(0,0,500,500);
@@ -52,13 +55,13 @@ var drawDVD = function(){
 
 };
 
-var stopDVD = function(){
+var stopBall = function(){
     cancelAnimationFrame(ID);
 };
 
 
-dvdButton.addEventListener("click", drawDVD);
-stopButton.addEventListener("click", stop);
+dvdButton.addEventListener("click", drawBall);
+stopButton.addEventListener("click", stopBall);
 addButton.addEventListener("click", addBall);
 
 	
