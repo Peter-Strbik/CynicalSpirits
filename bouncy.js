@@ -5,6 +5,14 @@ var stopButton = document.getElementById("stop");
 var addButton = document.getElementById("add");
 // NEED HTML
 
+function getRandomColor() {
+    var letters = '0123456789ABCDEF'.split('');
+    var color = '#';
+    for (var i = 0; i < 6; i++ ) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
 
 ctx.fillStyle = "#00ff00";
 
@@ -15,6 +23,7 @@ var makeBall = function(){
     var xDir = 1 * Math.random();
     var yDir = 1 * Math.random();
     var speed = 10 * Math.random();
+    var color = getRandomColor();
     var xPos = Math.floor((Math.random() * (c.width - 20)) + 10);
     var yPos = Math.floor((Math.random() * (c.height - 20)) + 10);
     var wallBounce = function(){
@@ -28,9 +37,11 @@ var makeBall = function(){
         }
     }
     var drawBall = function(){
+    	ctx.fillStyle = color;
     	ctx.beginPath();
 	ctx.arc(xPos, yPos, 10, 0, 2 * Math.PI);
 	ctx.fill();
+	ctx.stroke();
     }
     return {
     	bounce : wallBounce,
