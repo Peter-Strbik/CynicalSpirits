@@ -3,6 +3,10 @@ var ctx = c.getContext("2d");
 var startButton = document.getElementById("start");
 var stopButton = document.getElementById("stop");
 var addButton = document.getElementById("add");
+var flockButton = document.getElementById("flock");
+var disperseButton = document.getElementById("disperse");
+var filterButton = document.getElementById("filter");
+var removeButton = document.getElementById("remove");
 // NEED HTML
 
 function getRandomColor() {
@@ -75,6 +79,7 @@ var makeBall = function(){
     	y : yPos,
     	xV : xDir,
     	yV : yDir,
+	speed : speed,
     	r : radius,
     	flip : flip
     };
@@ -106,9 +111,23 @@ var stopBall = function(){
     cancelAnimationFrame(ID);
 };
 
+var flock = function(){
+    balls = balls.map( function(x) { x.xV = 1; x.yV = 1; x.speed = 5;});
+};
+
+var disperse = function(){
+    balls = balls.map( function(x) { x.xV = (Math.random() * 2) - 1; x.yV = (Math.random() * 2) - 1; x.speed = Math.random() * 10; });
+};
+
+var filter = function(){
+    
+};
 
 startButton.addEventListener("click", drawBall);
 stopButton.addEventListener("click", stopBall);
 addButton.addEventListener("click", addBall);
+flockButton.addEventListener("click", flock);
+disperseButton.addEventListener("click", disperse);
+
 
 	
